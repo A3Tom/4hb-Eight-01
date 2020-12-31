@@ -11,3 +11,18 @@ I have an alarm set every day of the year for 8pm to make sure I am aware of wha
 ## Concept : ##
 
 A system to log what I'm doing at 8pm each day along with categorization and report tools. 
+
+
+## Implementation : ##
+
+MVP : 
+A blazor servor side application which logs specific criteria to a database 
+
+Bonus Points : 
+Google Calendar Integration
+
+Criteria (in order of importance) :
+Date
+Description
+Day rating
+Activities Completed
