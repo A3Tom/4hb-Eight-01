@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Eight.Data\Eight.Data.csproj" />
+    <ProjectReference Include="..\Eight.Domian\Eight.Domian.csproj" />
+  </ItemGroup>
+
 </Project>
