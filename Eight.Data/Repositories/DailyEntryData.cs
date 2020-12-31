@@ -5,16 +5,16 @@ using Eight.Domian.Models;
 
 namespace Eight.Data.Repositories
 {
-    public class IDailyEntryData
+    public class DailyEntryData : IDailyEntryData
     {
         public ISqlDataAccess _repository { get; }
 
-        public IDailyEntryData(ISqlDataAccess repository)
+        public DailyEntryData(ISqlDataAccess repository)
         {
             _repository = repository;
         }
 
-        public Task<List<DayEntry>> GetAllDayEntries()
+        public Task<List<DayEntry>> GetAllDailyEntries()
         {
             var sql = "Select * From dbo.DayEntry";
 

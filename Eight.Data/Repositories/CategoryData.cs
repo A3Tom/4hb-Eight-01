@@ -1,10 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Eight.Data.Interfaces;
 using Eight.Domian.Models;
 
 namespace Eight.Data.Repositories
 {
-    public class CategoryData
+    public class CategoryData : ICategoryData
     {
         public ISqlDataAccess _repository { get; }
 
@@ -13,11 +14,11 @@ namespace Eight.Data.Repositories
             _repository = repository;
         }
 
-        public Task GetAllCategories()
+        public Task<List<Category>> GetAllCategories()
         {
             var sql = "Select * From dbo.Category";
 
-            return _repository.LoadData<DayEntry, dynamic>(sql, new { });
+            return _repository.LoadData<Category, dynamic>(sql, new { });
         }
         public Task InsertCategory(Category newCategory)
         {
