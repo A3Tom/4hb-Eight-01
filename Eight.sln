@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eight.Web", "Eight.Web\Eight.Web.csproj", "{AE9E0CEF-BE26-43BE-A1DB-203110694B31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eight.Data", "Eight.Data\Eight.Data.csproj", "{A1D45830-5A4D-40FC-823A-C6ACF73CC269}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eight.Data", "Eight.Data\Eight.Data.csproj", "{A1D45830-5A4D-40FC-823A-C6ACF73CC269}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eight.Domian", "Eight.Domian\Eight.Domian.csproj", "{7CB09D53-EAA8-4AF4-AD20-6C53B03CDC17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eight.Domian", "Eight.Domian\Eight.Domian.csproj", "{7CB09D53-EAA8-4AF4-AD20-6C53B03CDC17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
