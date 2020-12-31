@@ -9,5 +9,8 @@ namespace Eight.Domian.Models
         public DateTime DateLogged { get; set; }
         public decimal DayRating { get; set; }
         public byte ActivitiesCompleted { get; set; }
+        public int CategoryId { get; set; }
+        
+        public virtual Category Category { get; set; }
     }
 }

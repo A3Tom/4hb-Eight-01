@@ -21,14 +21,14 @@ namespace Eight.Data.Repositories
             return _repository.LoadData<DayEntry, dynamic>(sql, new { });
         }
 
-        public Task InsertDayEntry(DayEntry person)
+        public Task InsertDayEntry(DayEntry newEntry)
         {
             string sql = @"Insert into dbo.DayEntry 
                            (Description, DateLogged, DayRating, ActivitiesCompleted)
                            values 
                            (@Description, @DateLogged, @DayRating, @ActivitiesCompleted);";
 
-            return _repository.SaveData(sql, person);
+            return _repository.SaveData(sql, newEntry);
         }
     }
 }
