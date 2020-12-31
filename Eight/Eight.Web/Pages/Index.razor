@@ -1,7 +1,32 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<h1>What did you get upto the day, @GenerateTermOfEndearment() ?</h1>
 
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+
+@code {
+    private Random _rnd = new();
+    private List<string> _flatteringCompliments;
+
+    public Index()
+    {
+        _flatteringCompliments = BuildComplimentaryTermsList();
+    }
+
+    private string GenerateTermOfEndearment()
+    {
+        return _flatteringCompliments[_rnd.Next(0, _flatteringCompliments.Count)].ToLower();
+    }
+
+    private List<string> BuildComplimentaryTermsList() => new List<string>
+    {
+        "Baw jaws",
+        "Sad sacks",
+        "Wee peas",
+        "El cunto",
+        "Fanny baws"
+    };
+}
