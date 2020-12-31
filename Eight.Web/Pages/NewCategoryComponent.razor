@@ -1,0 +1,103 @@
+﻿@page "/manageCategories"
+
+@using Eight.Data.Repositories
+@using Eight.Domian.Models
+@using Eight.Domian.ViewModels
+
+@inject ICategoryData _categoryData
+
+<div class="row mb-3">
+    @if (categories is not null)
+    {
+        <table class="table table-striped col-12">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Classification</th>
+                    <th>Is Productive</th>
+                </tr>
+            </thead>
+            <tbody>
+                <Virtualize Items="categories" Context="category">
+                    <tr>
+                        <td>@category.Name</td>
+                        <td>@category.Classification</td>
+                        <td>@category.IsProductive</td>
+                    </tr>
+                </Virtualize>
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Get addin somethin cos there is fuck all to see here</p>
+    }
+</div>
+
+<div>
+    <EditForm Model="@newCategory" OnValidSubmit="@AddNewCategory">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="col-12 mb-3">
+            <h3 style="text-align:center">Add A New Category</h3>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Name ?</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" @bind-value="newCategory.Name">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Classification</span>
+            </div>
+            <InputSelect id="categorySelect" @bind-Value="newCategory.Classification">
+                <option value="null"></option>
+                @foreach (var classification in Enum.GetValues(typeof(ClassificationEnum)))
+                {
+                    <option value="@classification">@classification.ToString()</option>
+                }
+            </InputSelect>
+
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Is this productive</span>
+            </div>
+            <input type="checkbox" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" @bind-value="newCategory.IsProductive">
+        </div>
+
+        <div class="input-group">
+            <button type="submit" style="width:100%" class="btn btn-success ">Lets add this lil bitch</button>
+        </div>
+    </EditForm>
+</div>
+@code {
+    private CategoryVM newCategory = new();
+    private List<Category> categories = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadCategories();
+    }
+
+    private async Task AddNewCategory()
+    {
+        Category newEntity = new()
+        {
+            Name = newCategory.Name,
+            IsProductive = newCategory.IsProductive,
+            Classification = newCategory.Classification
+        };
+
+        await _categoryData.InsertCategory(newEntity);
+
+        await LoadCategories();
+    }
+
+    private async Task LoadCategories()
+    {
+        categories = await _categoryData.GetAllCategories();
+    }
+}

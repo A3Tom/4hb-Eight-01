@@ -27,9 +27,6 @@
                 <option value="@category.Id">@category.Name (@category.Classification)</option>
             }
         </InputSelect>
-        <div class="ml-2">
-            <button class="btn btn-info">Add Category</button>
-        </div>
     </div>
 
     <div class="input-group mb-3">
@@ -47,7 +44,7 @@
     </div>
 
     <div class="input-group">
-        <button type="submit" style="width:100%" class="btn btn-success ">Yippee Ki Yay, Motherfucker</button>
+        <button type="submit" id="submitFormBtn" name="submitFormBtn" style="width:100%" class="btn btn-success ">Yippee Ki Yay, Motherfucker</button>
     </div>
 </EditForm>
 
@@ -58,7 +55,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        categories = await _categoryData.GetAllCategories();
+        await LoadCategories();
     }
 
     private async Task AddNewEntry()
@@ -75,5 +72,10 @@
         await _dailyEntryData.InsertDayEntry(newEntity);
 
         newDayEntry = new();
+    }
+
+    private async Task LoadCategories()
+    {
+        categories = await _categoryData.GetAllCategories();
     }
 }
