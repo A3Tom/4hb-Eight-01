@@ -24,9 +24,9 @@ namespace Eight.Data.Repositories
         public Task InsertDayEntry(DayEntry newEntry)
         {
             string sql = @"Insert into dbo.DayEntry 
-                           (Description, DateLogged, DayRating, ActivitiesCompleted)
+                           (Description, DateLogged, DayRating, ActivitiesCompleted, CategoryId)
                            values 
-                           (@Description, @DateLogged, @DayRating, @ActivitiesCompleted);";
+                           (@Description, @DateLogged, @DayRating, @ActivitiesCompleted, @CategoryId);";
 
             return _repository.SaveData(sql, newEntry);
         }
