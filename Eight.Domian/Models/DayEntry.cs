@@ -4,9 +4,10 @@ namespace Eight.Domian.Models
 {
     public class DayEntry
     {
-        public string Description { get; init; }
-        public DateTime DateLogged { get; init; }
-        public decimal DayRating { get; init; }
-        public byte ActivitiesCompleted { get; init; }
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public DateTime DateLogged { get; set; }
+        public decimal DayRating { get; set; }
+        public byte ActivitiesCompleted { get; set; }
     }
 }
