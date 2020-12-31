@@ -31,7 +31,7 @@ Make Activities completed a list of items with it's own table
 ## Criteria / Data structure: ##
 
 ---
-~ **Day Entry Table** ~
+**Day Entry Table**
 
 |MoSCoW|Name|DataType C#|DataType Sql|
 |---|---|---|---|
@@ -41,9 +41,9 @@ Make Activities completed a list of items with it's own table
 |S|Day Rating|Decimal|Decimal(2, 2)|
 |C|CategoryId|Int|Int|
 |C|Activities Completed|Byte|TinyInt|
-|
 
-~ **Category Table** ~
+
+**Category Table**
 
 
 |MoSCoW|Name|DataType C#|DataType Sql|
@@ -52,4 +52,3 @@ Make Activities completed a list of items with it's own table
 |C|Name|String|NVarChar(256)|
 |C|IsProductive|Boolean|Bit|
 |C|Classification|ClassificationEnum|Int|
-|
